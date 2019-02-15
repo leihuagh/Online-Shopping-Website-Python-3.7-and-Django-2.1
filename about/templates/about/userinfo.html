@@ -1,0 +1,47 @@
+{% extends 'shop/product/base.html' %}
+{% load static %}
+{% block title %}
+    About Us
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid" style="margin-top: 10%">
+
+      <!-- Introduction Row -->
+      <h1>
+        <small>It's Nice to Meet You!</small>
+      </h1>
+      <p>We are one of the top online store you will find in online shoping world.</p>
+
+      <!-- Team Members Row -->
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="my-4">Our Team</h2>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src=" {% static 'img/Avhi Aryal.jpg' %}"alt="">
+          <h3>Avhi Aryal
+            <small>Owner</small>
+          </h3>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="{% static 'img/Biplav Belbase.png' %}" alt="">
+          <h3>Biplav Belbase
+            <small>Sales Manager</small>
+          </h3>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="{% static 'img/Lokendra Rijal.jpg' %}" alt="">
+          <h3>Lokendra Rijal
+            <small>Production Manager</small>
+          </h3>
+        </div>
+        <div class="col-lg-4 col-sm-6 text-center mb-4">
+          <img class="rounded-circle img-fluid d-block mx-auto" src="{% static 'img/Rabin Dahal.jpg' %}" alt="">
+          <h3>Rabin Dahal
+            <small>Marketing Manager</small>
+          </h3>
+         
+        </div>
+        
+{% endblock %}

@@ -1,0 +1,91 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'shop:product_list' %}">Kapeed Store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'shop:product_list' %}">Home
+              
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about:about_detail'%}">About</a>
+            </li>
+             <li  class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ol class="list-unstyled">
+                        <li {% if not category %} class="active"{% endif %}><a class="dropdown-item" style="color: green" href="{% url 'shop:product_list' %}">All Products
+                        </a>
+                        </li>
+                            {% for c in categories %}
+                                <li {% if category.slug == slug %} class="active"{% endif %}>
+                                <a  class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                                </li>
+                            {% endfor %}
+
+                        </ol>
+                </div>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+
+            
+    
+
+    <!-- <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+ -->
+   
+
+    <div class="collapse navbar-collapse" >
+    <ul class="navbar-nav mr-auto">      
+      <li class="nav-item">
+        <button class="btn btn-info pull-left">
+            {% with totail_items=cart|length %}
+                {% if cart|length > 0 %}
+                    My Shopping Order:
+                    <a href="{% url "cart:cart_detail" %}" style="color: #ffffff">
+                        {{ totail_items }} item {{ totail_items|pluralize }}, Rs. {{ cart.get_total_price }}
+                    </a>
+                    {% else %}
+                    Cart (Empty)
+                {% endif %}
+            {% endwith %}
+         </button>
+       </li>
+    </ul> 
+    </div>
+
+     <div class="collapse navbar-collapse" >
+    <ul class="navbar-nav mr-auto">      
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}">Login</a>
+       
+      </li>
+    </ul>
+    </div>
+         
+        </div>
+      </div>
+    </nav>
+
+           
+           
+          
+
+   
+    
+    
+    
+ 
+
